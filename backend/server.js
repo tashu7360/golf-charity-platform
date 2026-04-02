@@ -87,4 +87,12 @@ const startServer = async () => {
   }
 };
 
-startServer();
+if (process.env.NODE_ENV !== 'production') {
+  startServer();
+} else {
+  sequelize.authenticate()
+    .then(() => sequelize.sync({ force: false }))
+    .catch(err => console.error('DB Error:', err));
+}
+
+module.exports = app;
