@@ -1,0 +1,69 @@
+.draws-page, .draw-detail-page { padding-top: 100px; }
+.draws-list { display: flex; flex-direction: column; gap: 12px; }
+.draw-card {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 24px;
+  text-decoration: none; color: var(--text);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.draw-card:hover { border-color: var(--border-light); transform: translateX(4px); color: var(--text); }
+.draw-card-left { display: flex; align-items: center; gap: 20px; }
+.draw-month-badge {
+  width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+  background: rgba(61,220,132,0.1); border-radius: var(--radius-sm);
+  font-size: 11px; font-weight: 600; color: var(--green); text-align: center;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.draw-card-name { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+.draw-card-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.draw-card-right { display: flex; align-items: center; gap: 16px; }
+.draw-numbers-sm { display: flex; gap: 6px; }
+.draw-ball {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(61,220,132,0.1); color: var(--green);
+  font-size: 12px; font-weight: 700; border: 1px solid rgba(61,220,132,0.2);
+}
+
+.back-link { display: inline-block; color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+.back-link:hover { color: var(--green); }
+
+.draw-numbers-hero { text-align: center; margin-bottom: 24px; }
+.draw-numbers-hero h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 24px; }
+.draw-balls-large { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.ball-lg {
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-elevated); border: 2px solid var(--border-light);
+  font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--text);
+  transition: all 0.3s;
+}
+.ball-lg.matched { background: var(--green); border-color: var(--green); color: #0a0f0d; box-shadow: 0 0 24px rgba(61,220,132,0.4); }
+.draw-hint { font-size: 13px; color: var(--text-dim); }
+
+.draw-pending-card { text-align: center; padding: 60px; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
+.draw-pending-card h2 { font-family: var(--font-display); font-size: 24px; }
+.draw-pending-card p { color: var(--text-muted); }
+
+.draw-my-entry { margin-bottom: 24px; }
+.my-entry-content { display: flex; flex-direction: column; gap: 16px; }
+.my-scores-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.my-balls { display: flex; gap: 8px; flex-wrap: wrap; }
+.ball-sm {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-elevated); border: 1px solid var(--border-light);
+  font-size: 14px; font-weight: 700;
+}
+.ball-sm.matched { background: rgba(61,220,132,0.15); border-color: var(--green); color: var(--green); }
+.my-result { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.prize-breakdown-card { margin-bottom: 24px; }
+.prize-rows { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.prize-row {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 16px; background: var(--bg-elevated); border-radius: var(--radius-sm);
+}
+.prize-row span:first-child { flex: 1; font-size: 15px; }
+.prize-row-jackpot { background: rgba(240,192,64,0.05); border: 1px solid rgba(240,192,64,0.15); }

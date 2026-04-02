@@ -1,0 +1,138 @@
+.home { overflow-x: hidden; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  --gx: 50%; --gy: 50%;
+  padding: 100px 0 80px;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at var(--gx) var(--gy), rgba(61,220,132,0.08) 0%, transparent 70%);
+  transition: background 0.1s;
+}
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid rgba(61,220,132,0.3); color: var(--green);
+  font-size: 13px; font-weight: 500; margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 900; line-height: 1.02;
+  margin-bottom: 24px; color: var(--text);
+}
+.hero-accent { color: var(--green); }
+.hero-subtitle {
+  font-size: 18px; color: var(--text-muted);
+  line-height: 1.7; max-width: 520px; margin-bottom: 36px;
+}
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-note { font-size: 13px; color: var(--text-dim); }
+.hero-orbs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.06;
+}
+.orb-1 { width: 600px; height: 600px; background: var(--green); top: -200px; right: -100px; animation: drift 12s ease-in-out infinite; }
+.orb-2 { width: 400px; height: 400px; background: #64ffb0; bottom: -100px; right: 200px; animation: drift 16s ease-in-out infinite reverse; }
+.orb-3 { width: 300px; height: 300px; background: var(--gold); top: 30%; left: -100px; animation: drift 20s ease-in-out infinite; }
+@keyframes drift { 0%,100%{transform:translate(0,0)} 33%{transform:translate(20px,-20px)} 66%{transform:translate(-10px,15px)} }
+
+/* Stats */
+.stats-section { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.stat-card {
+  background: var(--bg); padding: 32px 24px; text-align: center;
+}
+.stat-card .stat-number { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--green); }
+.stat-card .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+/* How section */
+.how-section { padding: 100px 0; }
+.section-tag {
+  display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green);
+  background: rgba(61,220,132,0.1); padding: 4px 12px; border-radius: 100px;
+  margin-bottom: 20px;
+}
+.section-heading {
+  font-family: var(--font-display); font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800; line-height: 1.1; margin-bottom: 60px; color: var(--text);
+}
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.step-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 24px;
+  transition: border-color var(--transition), transform var(--transition);
+  position: relative; overflow: hidden;
+}
+.step-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  opacity: 0; transition: opacity var(--transition);
+}
+.step-card:hover { border-color: rgba(61,220,132,0.3); transform: translateY(-4px); }
+.step-card:hover::before { opacity: 1; }
+.step-icon { font-size: 32px; margin-bottom: 16px; }
+.step-num { font-family: var(--font-display); font-size: 56px; font-weight: 900; color: var(--border-light); line-height: 1; margin-bottom: 12px; }
+.step-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+.step-body { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* Prize */
+.prize-section { padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.prize-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.prize-desc { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-top: 16px; }
+.prize-tiers { display: flex; flex-direction: column; gap: 16px; }
+.tier {
+  background: var(--bg-elevated); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.tier-gold { border-color: rgba(240,192,64,0.3); background: rgba(240,192,64,0.05); }
+.tier-icon { font-size: 24px; }
+.tier-label { flex: 1; font-weight: 500; }
+.tier-pct { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--green); min-width: 56px; text-align: right; }
+.tier-note { width: 100%; font-size: 12px; color: var(--text-dim); display: none; }
+.tier-gold .tier-pct { color: var(--gold); }
+
+/* Charity CTA */
+.charity-cta { padding: 100px 0; }
+.charity-cta-inner {
+  background: linear-gradient(135deg, rgba(61,220,132,0.08) 0%, rgba(61,220,132,0.03) 100%);
+  border: 1px solid rgba(61,220,132,0.2); border-radius: 24px;
+  padding: 64px; text-align: center;
+}
+.charity-cta-inner h2 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 44px); font-weight: 800; margin-bottom: 16px; }
+.charity-cta-inner p { font-size: 17px; color: var(--text-muted); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+
+/* Final CTA */
+.final-cta { padding: 80px 0; text-align: center; }
+.final-cta-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 800; margin-bottom: 12px; }
+.final-cta-sub { color: var(--text-muted); margin-bottom: 32px; font-size: 17px; }
+
+/* Footer */
+.footer { padding: 40px 0; border-top: 1px solid var(--border); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-brand { display: flex; align-items: center; gap: 8px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: var(--text-muted); font-size: 14px; text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-size: 13px; color: var(--text-dim); }
+
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .prize-inner{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-grid{grid-template-columns:1fr}
+  .charity-cta-inner{padding:36px 20px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
